@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Layout Guard Settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div class="header-row">
+          <h1>Layout Guard</h1>
+          <label class="locale-switcher" for="uiLocale">
+            <span class="sr-only">Interface language</span>
+            <select id="uiLocale" aria-label="Interface language">
+              <option value="en">English</option>
+              <option value="ru">Русский</option>
+              <option value="uk">Українська</option>
+              <option value="de">Deutsch</option>
+              <option value="fr">Français</option>
+              <option value="el">Ελληνικά</option>
+              <option value="he">עברית</option>
+              <option value="ar">العربية</option>
+              <option value="fa">فارسی</option>
+              <option value="es">Español</option>
+            </select>
+          </label>
+        </div>
+        <p data-i18n="subtitle">Wrong keyboard layout warning settings. Detection runs locally in your browser.</p>
+      </header>
+
+      <aside class="summary" aria-label="How Layout Guard works" data-i18n-aria="summaryAria">
+        <strong data-i18n="summaryTitle">Typed in the wrong layout?</strong>
+        <span data-i18n="summaryDetect">If your text looks like a real word in another layout, Layout Guard gives you a quick sound reminder.</span>
+        <span data-i18n="summaryWhere">It listens only in fields on web pages, not in the browser address bar, New Tab search, or Ctrl+F.</span>
+        <span data-i18n="summaryNoise">To avoid bothering you, it skips short, random, or already valid words.</span>
+      </aside>
+
+      <form id="settings">
+        <fieldset>
+          <legend data-i18n="general">General</legend>
+          <label class="toggle">
+            <span data-i18n="enable">Enable extension</span>
+            <input id="enabled" type="checkbox">
+          </label>
+
+          <label>
+            <span data-i18n="mode">Detection mode</span>
+            <select id="mode">
+              <option value="live" data-i18n="live">Live</option>
+              <option value="complete" data-i18n="complete">Word-complete</option>
+              <option value="both" data-i18n="both">Both</option>
+            </select>
+          </label>
+
+          <label>
+            <span data-i18n="minLength">Minimum character threshold</span>
+            <input id="minLength" type="number" min="2" max="10" required>
+          </label>
+
+          <label>
+            <span data-i18n="cooldown">Cooldown (milliseconds)</span>
+            <input id="cooldownMs" type="number" min="0" max="30000" step="100" required>
+          </label>
+
+          <label class="volume">
+            <span><span data-i18n="volume">Audio volume</span> <output id="volumeValue"></output></span>
+            <input id="volume" type="range" min="0" max="100" step="1">
+          </label>
+
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="languages">Languages</legend>
+          <p class="hint languages-hint" data-i18n="languagesHint">English (US QWERTY) is the base layout. Choose the additional layouts to check against it.</p>
+          <div id="languages" class="languages" role="group" aria-label="Enabled languages" data-i18n-aria="languagesAria"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="exclusions">Site exclusions</legend>
+          <label class="stacked" for="excludedSites">
+            <span data-i18n="disabledDomains">Disabled domains, one per line</span>
+            <textarea id="excludedSites" rows="6" placeholder="docs.google.com&#10;figma.com&#10;notion.so"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend data-i18n="detectionTest">Detection test</legend>
+          <label class="stacked" for="detectionTest">
+            <span><span data-i18n="typePrefix">Type</span> <code>ghbdtn</code> <span data-i18n="typeSuffix">or another wrong-layout word here</span></span>
+            <input id="detectionTest" type="text" autocomplete="off" spellcheck="false" placeholder="Type a wrong-layout word" data-i18n-placeholder="testPlaceholder">
+          </label>
+          <div id="detectionStatus" class="hint result" aria-live="polite"></div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit" data-i18n="save">Save settings</button>
+          <button id="testSound" class="secondary" type="button" data-i18n="testSound">Test sound</button>
+          <span id="status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </main>
+    <script src="../keyboardMap.js"></script>
+    <script src="../detector.js"></script>
+    <script src="../audio.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

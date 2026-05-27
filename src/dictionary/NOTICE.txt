@@ -1,0 +1,7 @@
+English, Russian, Ukrainian, German, French, Greek, Hebrew, Arabic, Persian,
+and Spanish dictionary entries are derived from FrequencyWords:
+https://github.com/hermitdave/FrequencyWords
+
+Only the first 40,000 alphabetic entries for each language are bundled for
+local, offline dictionary lookups. See the upstream license for the source
+word lists.

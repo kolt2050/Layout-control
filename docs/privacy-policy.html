@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - Layout Guard</title>
+  <style>
+    body { background: #f4f6fa; color: #202632; font: 16px/1.6 Arial, sans-serif; margin: 0; padding: 32px 18px; }
+    main { background: #fff; border: 1px solid #d7dce5; border-radius: 12px; margin: 0 auto; max-width: 780px; padding: 28px 34px; }
+    h1 { color: #2447a1; margin-top: 0; }
+    h2 { color: #263c70; font-size: 19px; margin-top: 28px; }
+    code { background: #edf1f7; border-radius: 4px; padding: 2px 5px; }
+    .footer { border-top: 1px solid #e2e8f0; color: #596678; font-size: 14px; margin-top: 30px; padding-top: 18px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Privacy Policy for Layout Guard</h1>
+    <p><strong>Effective date:</strong> May 27, 2026</p>
+    <p>Layout Guard is a browser extension that plays a sound when text typed on a web page appears to use the wrong keyboard layout.</p>
+
+    <h2>Data Collection</h2>
+    <p>Layout Guard does not collect, sell, share, or transmit personal information or typed content. It has no accounts, analytics, telemetry, advertising, backend service, or remote API integration.</p>
+
+    <h2>Local Text Processing</h2>
+    <p>While the extension is enabled, text in supported editable fields on ordinary web pages is checked locally against bundled keyboard mappings and local dictionaries. This processing is used only to decide whether to play a warning sound. Typed text is not stored by the extension or sent anywhere.</p>
+
+    <h2>Stored Settings</h2>
+    <p>Layout Guard uses <code>chrome.storage.sync</code> to remember user preferences, such as whether it is enabled, detection mode, minimum word length, cooldown, volume, enabled layouts, interface language, and excluded sites. These settings do not include typed text.</p>
+
+    <h2>Website Access</h2>
+    <p>The extension runs on web pages in order to observe typing in supported editable fields. It does not have access to the browser address bar, New Tab search field, or native Ctrl+F find bar. Users can disable detection or exclude specific sites in settings.</p>
+
+    <h2>Network Requests And Remote Code</h2>
+    <p>All runtime code, dictionaries, keyboard mappings, and generated sound behavior are packaged with the extension. Layout Guard does not make third-party network requests and does not load or execute remote code.</p>
+
+    <h2>Changes</h2>
+    <p>This policy may be updated when the extension changes. An updated policy will be published at this same URL with a new effective date.</p>
+
+    <p class="footer">&copy; 2026 Layout Guard</p>
+  </main>
+</body>
+</html>
